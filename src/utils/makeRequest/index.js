@@ -26,6 +26,7 @@ const makeRequest = async (
         navigate('/error');
       }
     }
+    throw e;
   }
 };
 
