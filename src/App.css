@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Display:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
 :root {
   /* --appColor: #3c3f45; */
   --grey: #9b9999;
@@ -17,9 +15,10 @@
   gap: 6rem;
   overflow: hidden; */
 
-  display: grid;
+  /* display: grid;
   height: 100vh;
-  grid-template-rows: 10% auto 10%;
+  grid-template-rows: 10% auto 10%; */
+  font-family: 'Montserrat', sans-serif;
 }
 
 .padding {

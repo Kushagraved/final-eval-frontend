@@ -16,6 +16,18 @@ export const GET_USER = {
 };
 
 
+export const GET_CONTENT_TYPES = {
+  url: 'api/content-types/',
+  method: 'get',
+};
+
+export const ADD_NEW_TYPE = {
+  url: 'api/content-types/new-type',
+  method: 'post',
+};
+
+
+
 // export const GET_BLOG_DATA = {
 //   url: 'blog-posts',
 //   method: 'get',

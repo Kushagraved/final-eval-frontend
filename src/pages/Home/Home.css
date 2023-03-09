@@ -1,0 +1,46 @@
+.Home {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 20% 80%;
+}
+
+.left {
+  display: grid;
+  grid-template-rows: 5% 95%;
+}
+.left-heading {
+  background-color: #5809ce;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.left-main {
+  background-color: #272727;
+}
+.right {
+  display: grid;
+  grid-template-rows: 5% 95%;
+}
+.right-heading {
+  padding: 1rem;
+  background-color: #ffffff;
+  color: #666666;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.right-main {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+.content-types {
+  background-color: #d4d6e5;
+}
+.content-fields {
+  background-color: #ebeefe;
+}

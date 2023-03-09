@@ -2,8 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Auth from './components/Auth/Auth'
-import Footer from './components/Footer/Footer'
-import Navbar from './components/Navbar/Navbar'
+
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import PublicRoute from './components/PublicRoute/PublicRoute'
 import Home from './pages/Home/Home'
@@ -20,7 +19,7 @@ function App() {
   }
   return (
     <div className='App'>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route>
           <Route
@@ -41,7 +40,7 @@ function App() {
           />
         </Route>
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
