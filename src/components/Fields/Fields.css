@@ -1,0 +1,27 @@
+.Fields {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 3rem;
+}
+.fields-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.3rem;
+}
+.home-button {
+  width: 100%;
+  height: 3rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #5809ce;
+  border-radius: 0.5rem;
+  border: 1px solid #5809ce;
+  border-style: dotted;
+  background-color: white;
+}

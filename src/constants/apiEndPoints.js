@@ -21,6 +21,33 @@ export const GET_CONTENT_TYPES = {
   method: 'get',
 };
 
+export const GET_FIELDS = (contentTypeId) => ({
+  url: `api/content-types/${contentTypeId}/get-fields`,
+  method: 'get'
+}
+)
+
+export const ADD_FIELD = (contentTypeId) => ({
+  url: `api/content-types/${contentTypeId}/add-field`,
+  method: 'patch'
+}
+)
+
+export const EDIT_FIELD = (contentTypeId) => ({
+  url: `api/content-types/${contentTypeId}/add-field`,
+  method: 'patch'
+}
+)
+
+export const GET_COLLECTION_BY_ID = (contentTypeId) => ({
+  url: `api/content-types/${contentTypeId}/get-collection`,
+  method: 'get'
+}
+)
+
+
+
+
 export const ADD_NEW_TYPE = {
   url: 'api/content-types/new-type',
   method: 'post',

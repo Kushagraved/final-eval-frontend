@@ -7,6 +7,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import PublicRoute from './components/PublicRoute/PublicRoute'
 import Home from './pages/Home/Home'
 import { useLoading } from './context/LoadingContext'
+import Collections from './pages/Collections/Collections'
 
 function App() {
   const { loading } = useLoading()
@@ -35,6 +36,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/collections/:contentTypeId'
+            element={
+              <ProtectedRoute>
+                <Collections />
               </ProtectedRoute>
             }
           />

@@ -1,0 +1,18 @@
+.CollectionTypes {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  color: white;
+}
+
+.CollectionTypes > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+li span {
+  position: relative;
+  left: 10px;
+}

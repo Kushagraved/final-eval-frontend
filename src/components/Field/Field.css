@@ -1,0 +1,34 @@
+.Field {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 10% 60% 30%;
+  height: 2.3rem;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d0c121;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.center {
+  padding: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.engagement {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.5rem;
+  padding-right: 1.5rem;
+}

@@ -13,10 +13,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 1rem;
+  padding-left: 2rem;
   color: white;
   font-size: 2rem;
-  font-weight: bold;
 }
 .left-main {
   background-color: #272727;
@@ -26,11 +25,7 @@
   grid-template-rows: 5% 95%;
 }
 .right-heading {
-  padding: 1rem;
   background-color: #ffffff;
-  color: #666666;
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 .right-main {
