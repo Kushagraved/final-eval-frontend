@@ -84,7 +84,7 @@ const Collections = () => {
           <div className='right-heading'>Content Types</div>
           <div className='right-main' style={{ backgroundColor: '#ebeefe' }}>
             <div className='heading' style={{ backgroundColor: '#ebeefe' }}>
-              <span>Entries Found</span>
+              <span>{collections.length} Entries Found</span>
               <span onClick={toggleMenu}>Add a new entry</span>
             </div>
             <div className='entries'>

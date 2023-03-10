@@ -42,6 +42,7 @@ const OffCanvas = ({
         },
       })
       updateCollectionsOnEdit(data)
+      closeModal()
       return
     }
     const { data } = await makeRequest(ADD_ENTRY, {
@@ -56,9 +57,10 @@ const OffCanvas = ({
       },
     })
     updateCollections(data)
+    closeModal()
+
     console.log(data)
   }
-  console.log('form data', formData)
 
   const getEntry = async () => {
     const { data } = await makeRequest(GET_ENTRY, {
