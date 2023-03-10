@@ -15,7 +15,9 @@ const makeRequest = async (
       method: apiEndPoint.method,
       ...dynamicConfig,
     };
+    console.log(requestDetails)
     const { data } = await axios(requestDetails);
+
     return data;
   } catch (e) {
     if (navigate) {

@@ -34,10 +34,16 @@ export const ADD_FIELD = (contentTypeId) => ({
 )
 
 export const EDIT_FIELD = (contentTypeId) => ({
-  url: `api/content-types/${contentTypeId}/add-field`,
+  url: `api/content-types/${contentTypeId}/edit-field`,
   method: 'patch'
 }
 )
+
+export const DELETE_FIELD = (contentTypeId) => ({
+  url: `api/content-types/${contentTypeId}/delete-field`,
+  method: 'patch'
+})
+
 
 export const GET_COLLECTION_BY_ID = (contentTypeId) => ({
   url: `api/content-types/${contentTypeId}/get-collection`,
@@ -45,7 +51,25 @@ export const GET_COLLECTION_BY_ID = (contentTypeId) => ({
 }
 )
 
+export const ADD_ENTRY = {
+  url: 'api/collections/new-entry',
+  method: 'post'
+}
 
+export const GET_ENTRY = {
+  url: 'api/collections/get-entry',
+  method: 'post'
+}
+
+export const UPDATE_ENTRY = {
+  url: 'api/collections/update-entry',
+  method: 'post'
+}
+
+export const DELETE_ENTRY = {
+  url: 'api/collections/delete-entry',
+  method: 'delete'
+}
 
 
 export const ADD_NEW_TYPE = {

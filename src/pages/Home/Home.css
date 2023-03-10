@@ -6,7 +6,7 @@
 
 .left {
   display: grid;
-  grid-template-rows: 5% 95%;
+  grid-template-rows: 8% 92%;
 }
 .left-heading {
   background-color: #5809ce;
@@ -22,10 +22,11 @@
 }
 .right {
   display: grid;
-  grid-template-rows: 5% 95%;
+  grid-template-rows: 8% 92%;
 }
 .right-heading {
   background-color: #ffffff;
+  font-size: 1rem;
 }
 
 .right-main {

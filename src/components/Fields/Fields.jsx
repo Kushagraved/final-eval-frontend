@@ -5,7 +5,7 @@ import { ADD_FIELD, GET_FIELDS } from '../../constants/apiEndPoints'
 import makeRequest from '../../utils/makeRequest'
 import Field from '../Field/Field'
 const Fields = ({ contentTypeId }) => {
-  const [fields, setFields] = useState([])
+  const [fields, setFields] = useState({})
 
   useEffect(() => {
     const getFields = async () => {
@@ -14,15 +14,22 @@ const Fields = ({ contentTypeId }) => {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       })
-      setFields({ ...data })
+      console.log(data)
+      setFields(data)
     }
     getFields()
   }, [contentTypeId])
 
-  const updateField = (field) => {
-    const updatedField = { ...fields, ...field }
-    setFields(updatedField)
+  const updateField = (newField) => {
+    setFields({ ...fields, ...newField })
   }
+
+  const deleteField = (fieldId) => {
+    const newFields = { ...fields }
+    delete newFields[fieldId]
+    setFields({ ...newFields })
+  }
+  console.log(fields)
 
   const handleNewField = async () => {
     const { data } = await makeRequest(ADD_FIELD(contentTypeId), {
@@ -33,7 +40,7 @@ const Fields = ({ contentTypeId }) => {
         fieldValue: 'Edit me',
       },
     })
-    console.log(data)
+
     setFields({ ...fields, ...data })
   }
 
@@ -45,13 +52,14 @@ const Fields = ({ contentTypeId }) => {
         Add another fields
       </button>
       <div className='fields-container'>
-        {Object?.entries(fields).map(([key, value]) => {
+        {Object.entries(fields).map(([key, value]) => {
           return (
             <Field
               key={key}
               field={{ key, value }}
               contentTypeId={contentTypeId}
               updateField={updateField}
+              deleteField={deleteField}
             />
           )
         })}

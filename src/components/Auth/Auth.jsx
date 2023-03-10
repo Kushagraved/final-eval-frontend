@@ -105,12 +105,22 @@ const Auth = () => {
   return (
     <div className='auth'>
       <div className='auth-left'>
-        <div className='heading'>
-          <span>Design APIs Fast,</span>
-          <span>Manage Content Easily.</span>
+        <div
+          className='heading'
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            backgroundColor: '#ebeefe',
+          }}
+        >
+          <span style={{ color: '#525252' }}>Design APIs Fast,</span>
+          <span style={{ color: '#525252', fontWeight: 'bold', fontSize: '2rem' }}>
+            Manage Content Easily.
+          </span>
         </div>
-        <div>
-          <img src={backgroundImg}></img>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <img src={backgroundImg} style={{ height: '85%', width: '85%' }}></img>
         </div>
       </div>
       <div className='auth-right'>

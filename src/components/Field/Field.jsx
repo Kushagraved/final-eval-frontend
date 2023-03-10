@@ -2,19 +2,35 @@ import React, { useState } from 'react'
 import './Field.css'
 import propTypes from 'prop-types'
 import makeRequest from '../../utils/makeRequest'
-import { EDIT_FIELD } from '../../constants/apiEndPoints'
+import { DELETE_FIELD, EDIT_FIELD } from '../../constants/apiEndPoints'
 
-const Field = ({ field, contentTypeId, updateField }) => {
+// eslint-disable-next-line react/prop-types
+const Field = ({ field, contentTypeId, updateField, deleteField }) => {
   const [input, setInput] = useState('')
   const [edit, setEdit] = useState(false)
+  const [error, setError] = useState(null)
+
   const handleEditField = async () => {
     setEdit(true)
+  }
+
+  const handleDeleteFields = async () => {
+    const res = await makeRequest(DELETE_FIELD(contentTypeId), {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      data: {
+        fieldId: field.key,
+      },
+    })
+    console.log('res', res)
+    deleteField(field.key)
   }
 
   const handleKeyDown = async (e) => {
     if (e.key === 'Enter' && input !== '') {
       try {
-        await makeRequest(EDIT_FIELD(contentTypeId), {
+        const { data } = await makeRequest(EDIT_FIELD(contentTypeId), {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -23,10 +39,10 @@ const Field = ({ field, contentTypeId, updateField }) => {
             fieldValue: input,
           },
         })
-        updateField({ [field.key]: input })
+        updateField(data[0].fields)
         setEdit(false)
       } catch (error) {
-        console.log(error.resonse.data)
+        setError(error.response.data.message)
       }
     }
   }
@@ -48,8 +64,25 @@ const Field = ({ field, contentTypeId, updateField }) => {
       </div>
       <div className='engagement'>
         <i className='fa fa-pencil' onClick={handleEditField}></i>
-        <i className='fa-regular fa-trash-can' />
+        <i className='fa-regular fa-trash-can' onClick={handleDeleteFields} />
       </div>
+
+      {error && (
+        <span
+          className='error'
+          style={{
+            color: 'red',
+            width: '50vw',
+            fontSize: '10px',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+            marginTop: '10px',
+          }}
+        >
+          *{error}
+        </span>
+      )}
     </div>
   )
 }

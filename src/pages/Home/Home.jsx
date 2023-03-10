@@ -20,7 +20,12 @@ const Home = () => {
         </div>
       </div>
       <div className='right'>
-        <div className='right-heading'>Content Types</div>
+        <div
+          className='right-heading'
+          style={{ fontSize: '1.5rem', display: 'flex', alignItems: 'center' }}
+        >
+          Content Types
+        </div>
         <div
           className='right-main'
           style={{

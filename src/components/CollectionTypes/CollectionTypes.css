@@ -7,12 +7,34 @@
   color: white;
 }
 
+.ct-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
 .CollectionTypes > ul {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.2rem;
 }
 li span {
   position: relative;
   left: 10px;
+  transition: 0.2s;
+}
+li span:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.ct-footer {
+  margin-top: 2rem;
+  width: 100%;
+  height: 2rem;
+  color: white;
+}
+.ct-footer :hover {
+  cursor: pointer;
 }
