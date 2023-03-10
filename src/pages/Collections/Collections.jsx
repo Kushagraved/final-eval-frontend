@@ -9,7 +9,6 @@ import './Collections.css'
 
 const Collections = () => {
   const { contentTypeId } = useParams()
-  // eslint-disable-next-line no-unused-vars
   const [fields, setFields] = useState([])
   const [collections, setCollections] = useState([])
   const [isOpen, setIsOpen] = useState(false)

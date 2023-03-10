@@ -35,7 +35,7 @@ const Modal = ({ closeModal, addContentType }) => {
       </div>
       <div className='button-holder'>
         <button onClick={closeModal}>Cancel</button>
-        <button onClick={handleNewType}>Create</button>
+        <button onClick={handleNewType} data-testid='cancel-btn'>Create</button>
       </div>
     </div>
   )
