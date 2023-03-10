@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import CollectionTypes from '../../components/CollectionTypes/CollectionTypes'
-import { GET_FIELDS } from '../../constants/apiEndPoints'
+import OffCanvas from '../../components/OffCanvas/OffCanvas'
+import { GET_COLLECTION_BY_ID, GET_FIELDS } from '../../constants/apiEndPoints'
 import makeRequest from '../../utils/makeRequest'
 import './Collections.css'
 const Collections = () => {
   const { contentTypeId } = useParams()
   // eslint-disable-next-line no-unused-vars
-  const [fields, setFields] = useState([]);
-  const [collections, setCollections] = useState([]);
+  const [fields, setFields] = useState([])
+  const [collections, setCollections] = useState([])
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen)
+  }
 
   useEffect(() => {
     const getFields = async () => {
@@ -22,19 +28,19 @@ const Collections = () => {
     getFields()
   }, [contentTypeId])
 
-  useEffect(()=>{
+  useEffect(() => {
     const getCollections = async () => {
-      const { data } = await makeRequest(GET_FIELDS(contentTypeId), {
+      const { data } = await makeRequest(GET_COLLECTION_BY_ID(contentTypeId), {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       })
-      setCollections({ ...data })
+      setCollections([...data.collections])
     }
     getCollections()
+  }, [contentTypeId])
 
-  },[])
-
+  let count = 0
   return (
     <div className='Collections'>
       <div className='left'>
@@ -45,32 +51,48 @@ const Collections = () => {
       </div>
       <div className='right'>
         <div className='right-heading'>Content Types</div>
-        <div className='right-main'>
-          <div className='heading'>
+        <div className='right-main' style={{ backgroundColor: '#ebeefe' }}>
+          <div className='heading' style={{ backgroundColor: '#ebeefe' }}>
             <span>Entries Found</span>
-            <span>Add a new entry</span>
+            <span onClick={toggleMenu}>Add a new entry</span>
           </div>
           <div className='entries'>
             <table>
               <thead>
                 <tr style={{ width: '100vw' }}>
                   {Object.entries(fields).map(([key, value]) => {
+                    if (count == 4) {
+                      return
+                    }
+                    count++
                     return <th key={key}>{value}</th>
                   })}
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>John</td>
-                  <td>32</td>
-                  <td>USA</td>
-                </tr>
+                {collections.map((collection) => {
+                  return (
+                    <tr key={collection.id} style={{ backgroundColor: 'white' }}>
+                      {Object.entries(collection.entries).map(([key, value]) => {
+                        return <td key={key}>{value}</td>
+                      })}
+                      <td></td>
+                    </tr>
+                  )
+                })}
               </tbody>
             </table>
           </div>
         </div>
       </div>
+
+      {isOpen && (
+        <div className='wrapper'>
+          <div className={isOpen ? 'overlay blur' : ''} onClick={toggleMenu}></div>
+          {/* <button onClick={toggleModal}>Open Modal</button> */}
+          {<OffCanvas closeModal={toggleMenu} contentTypeId={contentTypeId} fields={fields} />}
+        </div>
+      )}
     </div>
   )
 }

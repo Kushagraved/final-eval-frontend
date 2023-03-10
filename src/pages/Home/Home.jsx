@@ -23,7 +23,13 @@ const Home = () => {
         <div className='right-heading'>Content Types</div>
         <div
           className='right-main'
-          style={{ display: 'grid', gridTemplateColumns: '30% 70%', width: '100%', padding: '0' }}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '30% 70%',
+            width: '100%',
+            padding: '0',
+            gap: '0',
+          }}
         >
           <div className='content-types'>
             <NewType toggleContentTypeId={toggleContentTypeId} />

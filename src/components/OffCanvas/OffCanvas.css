@@ -2,11 +2,13 @@
   backdrop-filter: blur(10px);
 }
 
-.modal {
+.offcanvas {
   position: fixed;
-  top: 50%;
-  left: 50%;
+  height: 100vh;
+  top: 0%;
+  left: 75%;
   transform: translate(-50%, -50%);
+  transform: translateX(25%);
   background-color: white;
   padding: 20px;
   border-radius: 5px;
@@ -16,7 +18,7 @@
   gap: 3rem;
 }
 
-.modal > div:nth-child(2) {
+.offcanvas > div:nth-child(2) {
   display: flex;
   flex-direction: column;
   gap: 1rem;
